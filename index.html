@@ -1,0 +1,38 @@
+---
+layout: default
+title: Home
+---
+
+<div>
+<section class="featured-posts">
+{% for tag in site.categories %}
+<div class="section-title">
+    <h2><span>Recent {{ tag[0] }}</span></h2>
+</div>
+
+<div class="row listrecent">
+
+    {% for post in tag[1] limit:4 %}
+
+           {% if tag[0] == "Group Members" %}
+           			{% include members.html %}
+           {% else %}
+           			{% include postbox.html %}
+           {% endif %}						
+
+    {% endfor %}
+
+
+</div>
+
+<h3 align="right";>See all {{ tag[0] }}</h3>
+
+
+{% endfor %}
+
+</section>
+
+<!-- Featured
+================================================== -->
+
+</div>
